@@ -4,9 +4,9 @@ import LoadingReducer from "./features/loadingSlice";
 import productReducer from "./features/productSlice";
 export const store = configureStore({
   reducer: {
-    cartReducer,
-    productReducer,
-    LoadingReducer,
+    cart: cartReducer,
+    product: productReducer,
+    loading: LoadingReducer,
   },
   devTools: process.env.NODE_ENV !== "production",
 });
