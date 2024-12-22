@@ -1,5 +1,4 @@
 "use client";
-import ProductRow from "@/app/components/admin-apnel/ProductRow";
 import { setLoading } from "@/redux/features/loadingSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import axios from "axios";
