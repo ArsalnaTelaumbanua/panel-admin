@@ -5,7 +5,7 @@ import AuthProvider from "./components/admin-apnel/AuthProvider";
 import App from "./App";
 import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,9 +23,8 @@ export default function RootLayout({
         <AuthProvider>
           <App>{children}</App>
         </AuthProvider>
-
-        <Toaster position="bottom-center" reverseOrder={false}/>
+        <Toaster position="bottom-center" reverseOrder={false} />
       </body>
-    </html>
-  );
+    </html>
+  );
 }
