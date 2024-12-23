@@ -2,9 +2,9 @@
 import { useAppSelector } from "@/redux/hooks";
 import { useSession } from "next-auth/react";
 import React from "react";
-import Login from "../components/admin-apnel/Login";
-import Loader from "../components/admin-apnel/Loader";
-import Sidebar from "../components/admin-apnel/Sidebar";
+import Login from "../components/admin-panel/Login";
+import Loader from "../components/admin-panel/Loader";
+import Sidebar from "../components/admin-panel/Sidebar";
 
 const Layout = ({children}: {children: React.ReactNode}) => {
 
