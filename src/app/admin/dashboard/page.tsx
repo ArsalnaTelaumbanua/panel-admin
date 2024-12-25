@@ -1,6 +1,7 @@
 "use client";
 import Popup from "@/app/components/admin-panel/Popup";
 import ProductRow from "@/app/components/admin-panel/ProductRow";
+import Product from "@/libs/models/Product";
 import { setLoading } from "@/redux/features/loadingSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import axios from "axios";
@@ -16,6 +17,7 @@ export interface IProduct {
 }
 
 const Dashboard = () => {
+
   const [products, setProducts] = useState([]);
   const [openPopup, setOpenPopup] = useState(false);
   const [updateTable, setUpdateTable] = useState(false);
@@ -28,14 +30,14 @@ const Dashboard = () => {
     axios
       .get("/api/get_products")
       .then((res) => setProducts(res.data))
-      .catch((err) => console.error(err))
+      .catch((error) => console.log(error))
       .finally(() => dispatch(setLoading(false)));
   }, [updateTable]);
 
   return (
     <div>
       <div className="bg-white h-[calc(100vh-96px)] rounded-lg p-4">
-        <h2 className="text-3xl">All Product</h2>
+        <h2 className="text-3xl">All Products</h2>
 
         <div className="mt-4 h-[calc(100vh-180px)] overflow-y-auto">
           <table className="w-full">
@@ -49,13 +51,13 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((products: IProduct, index) => (
+              {products.map((product: IProduct, index) => (
                 <ProductRow
-                  key={products._id}
+                  key={product._id}
                   srNo={index + 1}
                   setOpenPopup={setOpenPopup}
                   setUpdateTable={setUpdateTable}
-                  product={products}
+                  product={product}
                 />
               ))}
             </tbody>
@@ -70,4 +72,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard;
