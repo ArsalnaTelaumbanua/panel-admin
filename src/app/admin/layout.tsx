@@ -7,26 +7,25 @@ import Loader from "../components/admin-panel/Loader";
 import Sidebar from "../components/admin-panel/Sidebar";
 
 const Layout = ({children}: {children: React.ReactNode}) => {
-
-    const isLoading = useAppSelector((store) => store.loading);
+    const isLoading = useAppSelector((store) => store.loadingReducer);
     const {data: session} = useSession();
 
     if(!session?.user){
         return <Login />;
     }
 
-    return <div className="flex">
-        <Sidebar />
-        <div className="w-full h-full">
-            {/* <Navbar /> */}
-            <div className="bg-gray-200 p-4 h-[calc(100vh-64px)]">{children}</div>
+    return (
+        <div className="flex">
+            <Sidebar />
+            <div className="w-full h-full">
+                <div className="bg-gray-200 p-4 h-[calc(100vh-64px)]">
+                    {children}
+                </div>
+            </div>
+            {isLoading && <Loader />}
         </div>
-        {isLoading && <Loader />}
-    </div>;
+    );
 };
 
 export default Layout;
 
-function LoadingReducer(a: Element, b: Element): boolean {
-    throw new Error("Function not implemented.");
-}

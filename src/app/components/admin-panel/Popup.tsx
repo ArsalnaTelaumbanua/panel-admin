@@ -12,7 +12,7 @@ interface PropsType {
 
 const Popup = ({setOpenPopup, setUpdateTable}:PropsType) => {
 
-const productData = useAppSelector((state) => state.product)
+const productData = useAppSelector((state) => state.productReducer)
 const dispatch = useAppDispatch()
 
 const [inputData, setInputData] = useState({

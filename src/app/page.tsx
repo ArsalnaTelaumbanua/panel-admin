@@ -1,9 +1,28 @@
-import Image from "next/image";
+"use client"
+import React, { useState } from "react";
+import Navbar from "./components/front-end/Navbar";
+import Cart from "./components/front-end/Cart";
+import Hero from "./components/front-end/Hero";
+import Feature from "./components/front-end/Feature";
+import TrendingProducts from "./components/front-end/TrendingProducts";
+import Banner from "./components/front-end/Banner";
+import Footer from "./components/front-end/Footer";
 
-export default function Home() {
+
+const Home = () => {
+  const [showCart, setShowCart] = useState(false);
+
   return (
-    <div>
-      hello
-    </div>
+    <main>
+      <Navbar setShowCart={setShowCart} />
+      {showCart && <Cart setShowCart={setShowCart}/>}
+      <Hero />
+      <Feature />
+      <TrendingProducts />
+      <Banner />
+      <Footer />
+    </main>
   );
-}
+};
+
+export default Home;

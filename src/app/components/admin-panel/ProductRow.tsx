@@ -1,7 +1,11 @@
 import { IProduct } from "@/app/admin/dashboard/page";
+import { setLoading } from "@/redux/features/loadingSlice";
 import { setProduct } from "@/redux/features/productSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import { makeToast } from "@/utils/helper";
+import axios from "axios";
 import Image from "next/image";
+import { error } from "node:console";
 import { Dispatch, SetStateAction } from "react";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin5Line } from "react-icons/ri";
@@ -27,9 +31,34 @@ const ProductRow = ({
     }
 
     const onDelete = () => {
-        // will do later
+        dispatch(setLoading(true));
+    
+        const payload = {
+            fileKey: product.fileKey
+        };
+    
+        axios.delete("/api/uploadthing", { data: payload })
+            .then(res => {
+                console.log(res.data);
+    
+                console.log("Deleting product with ID:", product._id);
+                axios.delete(`/api/delete_product/${product._id}`)
+                    .then(res => {
+                        console.log("Delete response:", res.data);
+                        makeToast("Product deleted successfully");
+                        setUpdateTable((prevState) => !prevState);
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting product:", error);
+                        makeToast("Failed to delete product");
+                    })
+                    .finally(() => dispatch(setLoading(false)));
+            })
+            .catch((error) => {
+                console.error("Error deleting from uploadthing:", error);
+                dispatch(setLoading(false));
+            });
     };
-  
   
     return(
     <tr>

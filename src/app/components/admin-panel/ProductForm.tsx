@@ -51,12 +51,14 @@ const handleSubmit = (e: FormEvent) => {
 
   return (
   <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-    <Image className="max-h-[300] w-auto object-contain rounded-md"
-    src={payLoad.imgSrc ? payLoad.imgSrc : "/placecholder.jpg"}
-    width={800}
-    height={500}
-    alt="product_image"
-    />
+    <Image
+        className="max-h-[300px] w-auto object-contain rounded-md"
+        src={payLoad.imgSrc ? payLoad.imgSrc : "/placeholder.jpg"}
+        width={800}
+        height={500}
+        alt="product_image"
+        priority
+      />
 
 <UploadButton
     endpoint="imageUploader"
