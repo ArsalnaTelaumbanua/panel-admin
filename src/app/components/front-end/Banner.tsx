@@ -19,7 +19,7 @@ const Banner = () => {
           {/* Content */}
           <div className="relative h-full flex flex-col justify-center p-8 md:p-12 bg-gradient-to-r from-white/80 via-white/60 to-transparent">
             <div className="space-y-4">
-              <span className="inline-block px-4 py-1.5 bg-blue-600 text-white text-sm font-medium rounded-full">
+              <span className="inline-block px-4 py-1.5 bg-violet-600 text-white text-sm font-medium rounded-full">
                 Sale 20% off all store
               </span>
               
@@ -29,7 +29,7 @@ const Banner = () => {
               
               <a
                 href="#"
-                className="inline-block mt-4 px-6 py-2.5 bg-blue-600 text-white rounded-full font-medium transition-all hover:bg-blue-700"
+                className="inline-block mt-4 px-6 py-2.5 bg-violet-600 text-white rounded-full font-medium transition-all hover:bg-violet-700"
               >
                 Shop Now
               </a>
@@ -38,7 +38,7 @@ const Banner = () => {
         </div>
 
         {/* Secondary Banner */}
-        <div className="relative hidden lg:block h-[280px] rounded-2xl overflow-hidden bg-gradient-to-b from-purple-100 to-pink-50">
+        <div className="relative h-[280px] rounded-2xl overflow-hidden bg-gradient-to-b from-purple-100 to-pink-50">
           <div 
             className="absolute inset-0 bg-[url(/headphone.jpg)] bg-cover"
             style={{ 
@@ -47,7 +47,27 @@ const Banner = () => {
               transform: 'scale(1.1) translateY(5%)'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
+          
+          {/* Content */}
+          <div className="relative h-full flex flex-col justify-center p-6 md:p-8">
+            <div className="space-y-4">
+              <span className="inline-block px-4 py-1.5 bg-violet-600 text-white text-sm font-medium rounded-full">
+                Sale 10% on this week
+              </span>
+              
+              <h2 className="text-white font-bold text-2xl md:text-3xl max-w-[250px] leading-tight drop-shadow-lg">
+                Headphone Black Booster
+              </h2>
+              
+              <a
+                href="#"
+                className="inline-block mt-4 px-6 py-2.5 bg-violet-600 text-white rounded-full font-medium transition-all hover:bg-violet-700"
+              >
+                Shop Now
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

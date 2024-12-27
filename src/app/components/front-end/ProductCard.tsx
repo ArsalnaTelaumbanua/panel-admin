@@ -1,8 +1,9 @@
 import {
-    AiOutlineShoppingCart,
     AiFillStar,
     AiOutlineStar,
+    AiOutlineShoppingCart,
 } from "react-icons/ai";
+import toast from "react-hot-toast";
 import { useAppDispatch } from "@/redux/hooks";
 import { addToCart } from "@/redux/features/cartSlice";
 import { makeToast } from "@/utils/helper";
@@ -19,7 +20,7 @@ const ProductCard = ({ id, img, category, title, price }: propsType) => {
     const dispatch = useAppDispatch();
 
     const addProductToCart = () => {
-        const payLoad = {
+        const payload = {
             id,
             img,
             title,
@@ -27,8 +28,8 @@ const ProductCard = ({ id, img, category, title, price }: propsType) => {
             quantity: 1,
         };
 
-        dispatch(addToCart(payLoad));
-        makeToast("Added to cart");
+        dispatch(addToCart(payload));
+        makeToast("Added to Cart");
     };
 
     return (
@@ -41,22 +42,23 @@ const ProductCard = ({ id, img, category, title, price }: propsType) => {
                 <p className="text-gray-500 text-[14px] font-medium">{category}</p>
                 <h2 className="font-medium">{title}</h2>
 
-                <div className="mt-3 flex text-[#FFB21D] items-center">
+                <div className="mt-3 flex text-[#FFB21D]">
                     <AiFillStar />
                     <AiFillStar />
                     <AiFillStar />
                     <AiFillStar />
                     <AiOutlineStar />
-                    <p className="text-gray-600 text-[14px] ml-2">(3 Review)</p>
+                    <p className="text-gray-600 text-[14px] ml-2">(1000+ Review)</p>
                 </div>
 
                 <div className="flex justify-between items-center mt-4">
-                    <h2 className="font-medium text-accent text-xl">${price}</h2>
+                    <h2 className="font-medium text-accent text-xl">Rp{price} </h2>
                     <div
-                        className="flex gap-2 items-center bg-pink text-white px-4 py-2 cursor-pointer hover:bg-accent"
+                        className="flex gap-2 items-center bg-pink text-white px-4 py-2 cursor-pointer
+                        hover:bg-accent"
                         onClick={addProductToCart}
                     >
-                        <AiOutlineShoppingCart /> Add To Cart
+                        <AiOutlineShoppingCart /> Add to Cart
                     </div>
                 </div>
             </div>
@@ -64,4 +66,4 @@ const ProductCard = ({ id, img, category, title, price }: propsType) => {
     );
 };
 
-export default ProductCard;
+export default ProductCard;
